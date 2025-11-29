@@ -124,6 +124,7 @@ for (let i = 0; i < formInputs.length; i++) {
   });
 }
 
+
 // Enabling Page Navigation
 
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
