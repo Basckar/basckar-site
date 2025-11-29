@@ -70,9 +70,7 @@ ol li {
     text-align: left;
 }
 
- h3{
-    color: var(--white1);
- }
+ 
 h4{
     margin: revert;
 }
@@ -116,10 +114,6 @@ main {
     margin: 15px 12px;
     margin-bottom: 75px;
     min-width: 259px;
-}
-
-:host .ionicon {
-    stroke: var(--orange-yellow-crayola);
 }
 
 .sidebar, article {
@@ -761,9 +755,41 @@ article { display: none; }
 
 .filter-list { display: none; }
 
+/* لیست اصلی */
+.primary-filters .filter-item button {
+  font-size: 18px;        /* بزرگ‌تر */
+  font-weight: bold;      /* بولد */      /* پررنگ‌تر */
+  padding: 8px 14px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.primary-filters{
+    margin-top:3rem ;
+    margin-bottom: 10px;
+}
+
+/* لیست فرعی */
+.secondary-filters{
+    display: flex !important;
+    gap: 5px !important; 
+    margin-bottom: 20px;
+}
+.secondary-filters .filter-item button,
+.secondary-filters .select-item button {
+  font-size: 14px;        /* ریزتر */
+  font-weight: normal;    /* نازک‌تر */
+  color: #666;            /* کم‌رنگ‌تر */
+  padding: 6px 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+ 
+
 .filter-select-box { 
-    position: relative;
-    margin-bottom: 25px;
+    position: relative; 
 }
 
 .filter-select {
@@ -999,10 +1025,6 @@ article { display: none; }
 .contact-weys-item{
     display: flex;
     gap: 5px;
-   align-items: center;
-}
-:host .ionicon {
-    stroke: rgb(139 220 38);
 }
 .icon-contact{
     fill: var(--orange-yellow-crayola);
@@ -1504,9 +1526,9 @@ textarea.form-input {
         justify-content: flex-start;
         align-items: center;
         flex-direction: row-reverse;
-        gap: 25px;
+        gap: 20px;
         padding-left: 5px;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
     .filter-item button {
@@ -1673,7 +1695,6 @@ textarea.form-input {
         display: flex;
         gap: 2rem;
         flex-direction: column;
-        align-items: center;
      }
      .contact-weys-item{
         
