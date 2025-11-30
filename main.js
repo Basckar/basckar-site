@@ -61,9 +61,11 @@ let selectedSecondary = "همه";
 
 // تابع اعمال فیلتر ترکیبی
 function applyFilter() {
+  let anyActive = false;
+
   items.forEach((item) => {
-    const p = item.dataset.primary; // ui, سئو, وردپرس, کدنویسی
-    const s = item.dataset.secondary; // فروشگاهی, خدماتی
+    const p = item.dataset.primary;
+    const s = item.dataset.secondary;
 
     const matchPrimary = selectedPrimary === "همه" || p === selectedPrimary;
     const matchSecondary =
@@ -71,10 +73,19 @@ function applyFilter() {
 
     if (matchPrimary && matchSecondary) {
       item.classList.add("active");
+      anyActive = true;
     } else {
       item.classList.remove("active");
     }
   });
+
+  // نمایش پیام Coming Soon اگر هیچ آیتمی فعال نبود
+  const msg = document.querySelector(".no-project-message");
+  if (anyActive) {
+    msg.classList.remove("active");
+  } else {
+    msg.classList.add("active");
+  }
 }
 
 // مدیریت فعال‌سازی دکمه‌ها
@@ -123,7 +134,6 @@ for (let i = 0; i < formInputs.length; i++) {
     }
   });
 }
-
 
 // Enabling Page Navigation
 
