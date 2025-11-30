@@ -752,12 +752,31 @@ article { display: none; }
 }
 
 /*PORTFOLIO*/
+ 
+ .filter-list {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: row-reverse;
+        /* gap: 20px; */
+        padding-left: 5px;
+        margin-bottom: 15px;
+    }
 
-.filter-list { display: none; }
+    .filter-item button {
+        color: var(--light-gray);
+        font-size: var(--fs5);
+        transition: var(--transition1);
+    }
+
+        .filter-item button:hover { color: var(--light-gray70); }
+        .filter-item button.active { color: var(--orange-yellow-crayola)!important; }
 
 /* لیست اصلی */
 .primary-filters .filter-item button {
-  font-size: 18px;        /* بزرگ‌تر */
+  font-size: clamp(0.85rem, 2.5vw, 1rem); /* فونت ریسپانسیو */
+       /* بزرگ‌تر */
+       
   font-weight: bold;      /* بولد */      /* پررنگ‌تر */
   padding: 8px 14px;
   border: none;
@@ -767,13 +786,20 @@ article { display: none; }
 .primary-filters{
     margin-top:3rem ;
     margin-bottom: 10px;
+     overflow-x: auto;
+        scrollbar-width: none; 
 }
 
 /* لیست فرعی */
 .secondary-filters{
-    display: flex !important;
-    gap: 5px !important; 
-    margin-bottom: 20px;
+  display: flex; 
+  margin-top: 1rem; 
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; 
+  position: relative;
+  cursor: default;
+  white-space: nowrap;      /* متن نشکنه */
 }
 .secondary-filters .filter-item button,
 .secondary-filters .select-item button {
@@ -847,6 +873,17 @@ article { display: none; }
     gap: 30px;
     margin-bottom: 10px;
     direction: rtl;
+}
+.no-project-message {
+  display: none;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #999;
+  margin-top: 20px;
+}
+.no-project-message.active {
+  display: block;
 }
 
 .project-item { display: none; }
@@ -1521,24 +1558,7 @@ textarea.form-input {
 
     .filter-select-box { display: none; }
 
-    .filter-list {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-direction: row-reverse;
-        gap: 20px;
-        padding-left: 5px;
-        margin-bottom: 15px;
-    }
-
-    .filter-item button {
-        color: var(--light-gray);
-        font-size: var(--fs5);
-        transition: var(--transition1);
-    }
-
-        .filter-item button:hover { color: var(--light-gray70); }
-        .filter-item button.active { color: var(--orange-yellow-crayola); }
+   
 
     .project-list, .blog-posts-list { grid-template-columns: 1fr 1fr; }
 
