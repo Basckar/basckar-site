@@ -78,7 +78,47 @@ function applyFilter() {
       item.classList.remove("active");
     }
   });
+  document.addEventListener("DOMContentLoaded", function () {
+    const list = document.getElementById("project-list");
+    const popup = document.getElementById("popup");
+    const imgEl = document.getElementById("popup-img");
+    const titleEl = document.getElementById("popup-title");
+    const descEl = document.getElementById("popup-desc");
+    const dateEl = document.getElementById("popup-date"); // تاریخ
+    const closeBtn = document.getElementById("popup-close");
 
+    // delegation: فقط یک listener روی لیست
+    list.addEventListener("click", function (e) {
+      const li = e.target.closest(".project-item");
+      if (!li) return;
+
+      const img = li.dataset.img;
+      const title = li.dataset.title;
+      const desc = li.dataset.desc;
+      const date = li.dataset.date; // تاریخ از data-attribute
+
+      imgEl.src = img || "";
+      titleEl.textContent = title || "";
+      descEl.textContent = desc || "";
+      dateEl.textContent = date || new Date().toLocaleDateString("fa-IR"); // اگر تاریخ نبود، تاریخ امروز
+
+      popup.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    });
+
+    closeBtn.addEventListener("click", closePopup);
+    popup.addEventListener("click", function (e) {
+      if (e.target === this) closePopup();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closePopup();
+    });
+
+    function closePopup() {
+      popup.style.display = "none";
+      document.body.style.overflow = "";
+    }
+  });
   // نمایش پیام Coming Soon اگر هیچ آیتمی فعال نبود
   const msg = document.querySelector(".no-project-message");
   if (anyActive) {
